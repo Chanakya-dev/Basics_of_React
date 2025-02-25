@@ -15,9 +15,9 @@
 ### **4. React Hooks (For Functional Components)**
 - `useState` (Managing State)
 - `useEffect` (Side Effects & Lifecycle Methods)
-- `useParams`
-- `useRef` (Accessing DOM Elements)
-- `useContext` (Managing Global State)
+- `useSelector`(Fetch Data from variables in redux)
+- `useDispatch`(Helps to callout and Dispatch Functions
+- `useNavigate`(Helps to Navigate Through out pages)
 
 ### **5. Advanced React**
 - React Router (Navigation)
