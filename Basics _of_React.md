@@ -1,4 +1,20 @@
-## **1. Simple Functional Component with JSX**
+Here's the **full code** for each example, including the **main `App.js` file** to render the components properly.
+
+---
+
+### **1. Simple Functional Component with JSX**
+#### **File Structure:**
+```
+/react-app
+  ├── src
+  │   ├── components
+  │   │   ├── Welcome.js
+  │   ├── App.js
+  │   ├── index.js
+  ├── package.json
+```
+
+#### **`src/components/Welcome.js`**
 ```jsx
 import React from "react";
 
@@ -8,19 +24,46 @@ const Welcome = () => {
 
 export default Welcome;
 ```
-> **Explanation:**  
-- A simple **functional component** named `Welcome`.  
-- It returns **JSX** containing an `<h1>` element.
+
+#### **`src/App.js`**
+```jsx
+import React from "react";
+import Welcome from "./components/Welcome";
+
+const App = () => {
+  return <Welcome />;
+};
+
+export default App;
+```
+
+#### **`src/index.js`**
+```jsx
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+
+ReactDOM.render(<App />, document.getElementById("root"));
+```
 
 ---
 
-## **2. Functional Component with Props**
-Props allow passing data to a component.
-
+### **2. Functional Component with Props**
+#### **`src/components/UserGreeting.js`**
 ```jsx
+import React from "react";
+
 const UserGreeting = (props) => {
   return <h2>Hello, {props.name}!</h2>;
 };
+
+export default UserGreeting;
+```
+
+#### **`src/App.js`**
+```jsx
+import React from "react";
+import UserGreeting from "./components/UserGreeting";
 
 const App = () => {
   return <UserGreeting name="John" />;
@@ -28,16 +71,14 @@ const App = () => {
 
 export default App;
 ```
-> **Explanation:**  
-- `UserGreeting` takes `props.name` and displays a greeting.  
-- `App` component passes `"John"` as the prop value.
 
 ---
 
-## **3. Functional Component with Multiple JSX Elements**
-Using **React Fragments (`<> </>`)** to return multiple elements.
-
+### **3. Functional Component with Multiple JSX Elements**
+#### **`src/components/Profile.js`**
 ```jsx
+import React from "react";
+
 const Profile = () => {
   return (
     <>
@@ -49,16 +90,26 @@ const Profile = () => {
 
 export default Profile;
 ```
-> **Explanation:**  
-- Instead of wrapping elements in a `<div>`, we use `<> </>` (React Fragment).  
-- This helps prevent unnecessary extra elements in the DOM.
+
+#### **`src/App.js`**
+```jsx
+import React from "react";
+import Profile from "./components/Profile";
+
+const App = () => {
+  return <Profile />;
+};
+
+export default App;
+```
 
 ---
 
-## **4. Functional Component with Click Event**
-Handling events inside a functional component.
-
+### **4. Functional Component with Click Event**
+#### **`src/components/ClickButton.js`**
 ```jsx
+import React from "react";
+
 const ClickButton = () => {
   const handleClick = () => {
     alert("Button Clicked!");
@@ -69,30 +120,56 @@ const ClickButton = () => {
 
 export default ClickButton;
 ```
-> **Explanation:**  
-- `onClick` triggers `handleClick()`, which shows an alert when the button is clicked.
+
+#### **`src/App.js`**
+```jsx
+import React from "react";
+import ClickButton from "./components/ClickButton";
+
+const App = () => {
+  return <ClickButton />;
+};
+
+export default App;
+```
 
 ---
 
-## **5. Functional Component with Conditional Rendering**
-Rendering content based on conditions.
-
+### **5. Functional Component with Conditional Rendering**
+#### **`src/components/ShowMessage.js`**
 ```jsx
+import React from "react";
+
 const ShowMessage = ({ isLoggedIn }) => {
-  return <h2>{isLoggedIn ? "Welcome Back!" : "Please Log In"}</h2>;
+  if (isLoggedIn) {
+    return <h2>Welcome Back!</h2>;
+  } else {
+    return <h2>Please Log In</h2>;
+  }
 };
 
 export default ShowMessage;
 ```
-> **Explanation:**  
-- Uses a **ternary operator** to display different messages based on `isLoggedIn`.
+
+#### **`src/App.js`**
+```jsx
+import React from "react";
+import ShowMessage from "./components/ShowMessage";
+
+const App = () => {
+  return <ShowMessage isLoggedIn={true} />;
+};
+
+export default App;
+```
 
 ---
 
-## **6. Functional Component with List Rendering (`map()`)**
-Rendering an array of items.
-
+### **6. Functional Component with List Rendering (`map()`)**
+#### **`src/components/FruitsList.js`**
 ```jsx
+import React from "react";
+
 const FruitsList = () => {
   const fruits = ["Apple", "Banana", "Cherry"];
 
@@ -107,7 +184,17 @@ const FruitsList = () => {
 
 export default FruitsList;
 ```
-> **Explanation:**  
-- The `map()` function dynamically generates a list of fruits.
+
+#### **`src/App.js`**
+```jsx
+import React from "react";
+import FruitsList from "./components/FruitsList";
+
+const App = () => {
+  return <FruitsList />;
+};
+
+export default App;
+```
 
 ---
